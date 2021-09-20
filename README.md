@@ -31,3 +31,7 @@ $ go get github.com/dgrijalva/jwt-go
 
 $ go build main.go
 $ go run main.go
+
+//// url heroku 
+
+https://apigo-twittor.herokuapp.com/
