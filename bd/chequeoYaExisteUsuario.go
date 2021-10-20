@@ -16,7 +16,7 @@ func ChequeoYaExisteUsuario(email string) (models.Usuario, bool, string) {
 
 	db := MongoC.Database("twittor")
 	col := db.Collection("usuarios")
-	condicion := bson.M{"Email": email}
+	condicion := bson.M{"email": email}
 	fmt.Println("condicion : ", condicion)
 	var resultado models.Usuario
 
@@ -25,8 +25,9 @@ func ChequeoYaExisteUsuario(email string) (models.Usuario, bool, string) {
 
 	fmt.Println(err)
 	if err != nil {
-		return resultado, true, ID
+		fmt.Println("ingreso por null ñ false : ")
+		return resultado, false, ID
 	}
 
-	return resultado, false, ID
+	return resultado, true, ID
 }
