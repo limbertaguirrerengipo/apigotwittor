@@ -9,6 +9,12 @@ import (
 	jwt "github.com/dgrijalva/jwt-go"
 )
 
+/*email valor usado en todos los enponts*/
+var Email string
+
+/* IDUsuario es el Id devuelto del modelo, que se usara en todos los endpoint*/
+var IDUsuario string
+
 /*ProcesoToken es el proceso par extraer los datos */
 func ProcesoToken(tk string) (*models.Claim, bool, string, error) {
 	miClave := []byte("MasterdelDesarrollo_grupoFacebook")
@@ -25,7 +31,7 @@ func ProcesoToken(tk string) (*models.Claim, bool, string, error) {
 	})
 	if err == nil {
 		_, encontrado, _ := bd.ChequeoYaExisteUsuario(claims.Email)
-		if encontrado == true {
+		if encontrado {
 			Email = claims.Email
 			IDUsuario = claims.ID.Hex()
 		}

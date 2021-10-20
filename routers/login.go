@@ -29,7 +29,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	}
 	fmt.Println("variable t : ", t.Email, t.Password)
 	documento, existe := bd.IntentoLogin(t.Email, t.Password)
-	if existe == false {
+	if !existe {
 		http.Error(w, "Usuario 2 y/o Contrasenha invalida", 400)
 		return
 	}
