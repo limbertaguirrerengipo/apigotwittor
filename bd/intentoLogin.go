@@ -11,7 +11,7 @@ import (
 func IntentoLogin(email string, password string) (models.Usuario, bool) {
 	usu, encontrado, _ := ChequeoYaExisteUsuario(email)
 	fmt.Println("encontrado 3 : ", encontrado)
-	if encontrado == false {
+	if !encontrado {
 		return usu, false
 	}
 	passwordBytes := []byte(password)

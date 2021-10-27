@@ -13,5 +13,5 @@ func main() {
 		log.Fatal("Sin conexion a la base de datos")
 		return
 	}
-	handlers.MAnejadores()
+	handlers.Manejadores()
 }
